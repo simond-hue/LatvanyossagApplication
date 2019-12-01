@@ -193,9 +193,15 @@ namespace LatvanyossagokApplication
 
         private void listBoxVarosok_SelectedValueChanged(object sender, EventArgs e)
         {
-            textBoxEditVaros.Enabled = true;
-            numericUpDownEditVaros.Enabled = true;
-            ListLatvanyossagok(((Varos)listBoxVarosok.SelectedItem).Id);
+            if(listBoxVarosok.SelectedIndex != -1)
+            {
+                textBoxEditVaros.Enabled = true;
+                numericUpDownEditVaros.Enabled = true;
+                ListLatvanyossagok(((Varos)listBoxVarosok.SelectedItem).Id);
+
+                textBoxEditVaros.Text = ((Varos)listBoxVarosok.SelectedItem).Nev;
+                numericUpDownEditVaros.Value = ((Varos)listBoxVarosok.SelectedItem).Lakossag;
+            }
         }
 
         private void buttonVarosEdit_Click(object sender, EventArgs e)
@@ -307,9 +313,16 @@ namespace LatvanyossagokApplication
 
         private void listBoxLatvanyossagok_SelectedValueChanged(object sender, EventArgs e)
         {
-            textBoxEditLatvanyossagNev.Enabled = true;
-            numericUpDownLatvanyossagAr.Enabled = true;
-            textBoxEditLatvanyossagLeiras.Enabled = true;
+            if(listBoxLatvanyossagok.SelectedIndex != -1)
+            {
+                textBoxEditLatvanyossagNev.Enabled = true;
+                numericUpDownLatvanyossagAr.Enabled = true;
+                textBoxEditLatvanyossagLeiras.Enabled = true;
+
+                textBoxEditLatvanyossagNev.Text = ((Latvanyossag)listBoxLatvanyossagok.SelectedItem).Nev;
+                numericUpDownLatvanyossagAr.Value = ((Latvanyossag)listBoxLatvanyossagok.SelectedItem).Ar;
+                textBoxEditLatvanyossagLeiras.Text = ((Latvanyossag)listBoxLatvanyossagok.SelectedItem).Leiras;
+            }
         }
     }
 }
